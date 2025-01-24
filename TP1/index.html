@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title>Document Object Model</title>
+    </head>
+    <body>
+
+     <h1 class='title' id='first-title'>First Title</h1>
+     <h1 class='title' id='second-title'>Second Title</h1>
+     <h1 class='title' id='third-title'>Third Title</h1>
+     <h1></h1>
+     <div id="score"></div>
+
+     <!-- Exo 1 -->
+     <div id="container">
+        <p id="para1"></p>
+        <p id="para2"></p>
+        <p id="para3"></p>
+        <p id="para4"></p>
+    </div>
+
+    </body>
+    <script>
+        // const h1Elements = document.getElementById("first-title");
+        // console.log(h1Elements);
+        // Sélectionner la div avec l'id "score"
+        // const scoreDiv = document.getElementById("score");
+        // scoreDiv.innerHTML = '<ul><li>30</li><li>40</li></ul>';
+
+
+        // const divStyles =  document.getElementsByTagName("h1")
+        // divStyles.style.font-size = arial;
+        
+        // Exo 1
+        const firstParagraphAlt = document.getElementsByTagName("p")[0]; 
+        console.log(firstParagraphAlt);
+
+        const para1 = document.getElementById("para1");
+        const para2 = document.getElementById("para2");
+        const para3 = document.getElementById("para3");
+        const para4 = document.getElementById("para4");
+
+        para1.textContent = "Ceci est le contenu du paragraphe 1.";
+        para2.textContent = "Ceci est le contenu du paragraphe 2.";
+        para3.textContent = "Ceci est le contenu du paragraphe 3.";
+        para4.textContent = "Ceci est le contenu du paragraphe 4.";
+
+        para1.className = "my-paragraph";
+        para2.className = "my-paragraph";
+        para3.className = "my-paragraph";
+        para4.className = "my-paragraph";
+
+        console.log("Classe du premier paragraphe :", para1.className);
+
+    </script>
+  </html>

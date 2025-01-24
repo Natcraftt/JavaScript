@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JavaScript for Everyone: DOM</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>JS DOM</h1>
+      <h2>30DaysOfJavaScript Challenge</h2>
+      <ul>
+        <li>30DaysOfPython Challenge Done</li>
+        <li>30DaysOfJavaScript Challenge Ongoing</li>
+        <li>30DaysOfReact Challenge Coming</li>
+        <li>30DaysOfFullStack Challenge Coming</li>
+        <li>30DaysOfDataAnalysis Challenge Coming</li>
+        <li>30DaysOfReactNative Challenge Coming</li>
+        <li>30DaysOfMachineLearning Challenge Coming</li>
+      </ul>
+    </div>
+    <script>
+      const listItems = document.querySelectorAll("ul li");
+
+      listItems.forEach(item => {
+        const text = item.textContent;
+
+        if (text.includes("Done")) {
+          item.style.color = "green";
+        } else if (text.includes("Ongoing")) {
+          item.style.color = "yellow";
+        } else if (text.includes("Coming")) {
+          item.style.color = "red";
+        }
+      });
+    </script>
+  </body>
+</html>

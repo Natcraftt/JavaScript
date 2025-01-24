@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Numbers</title>
+  <style>
+    .number-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .number {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .even {
+      background-color: green;
+    }
+
+    .odd {
+      background-color: yellow;
+      color: black;
+    }
+
+    .prime {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="number-container" id="numberContainer"></div>
+
+  <script>
+    const container = document.getElementById('numberContainer');
+
+    function isPrime(num) {
+      if (num < 2) return false;
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    }
+
+    for (let i = 1; i <= 100; i++) {
+      const numberDiv = document.createElement('div');
+      numberDiv.textContent = i;
+      numberDiv.classList.add('number');
+
+      if (isPrime(i)) {
+        numberDiv.classList.add('prime');
+      } else if (i % 2 === 0) {
+        numberDiv.classList.add('even');
+      } else {
+        numberDiv.classList.add('odd');
+      }
+
+      container.appendChild(numberDiv);
+    }
+  </script>
+</body>
+</html>

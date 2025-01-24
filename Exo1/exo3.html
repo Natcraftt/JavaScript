@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulaire avec validation</title>
+    <style>
+      .error {
+        color: red;
+        font-size: 0.9em;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Formulaire d'inscription</h1>
+    <form id="registrationForm">
+      <label for="firstName">Prénom :</label>
+      <input type="text" id="firstName" placeholder="Entrez votre prénom" />
+      <p class="error" id="firstNameError"></p>
+
+      <label for="lastName">Nom :</label>
+      <input type="text" id="lastName" placeholder="Entrez votre nom" />
+      <p class="error" id="lastNameError"></p>
+
+      <label for="age">Âge :</label>
+      <input type="text" id="age" placeholder="Entrez votre âge" />
+      <p class="error" id="ageError"></p>
+
+      <label for="theme">Choisissez un thème :</label>
+      <select id="theme">
+        <option value="">Choisir un thème</option>
+        <option value="ia">IA</option>
+        <option value="climate">Réchauffement climatique</option>
+      </select>
+      <p class="error" id="themeError"></p>
+
+      <button type="submit">Envoyer</button>
+      <p id="formMessage" class="success"></p>
+    </form>
+
+    <script>
+      const form = document.getElementById('registrationForm');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault(); 
+        let isValid = true;
+
+        
+        document.querySelectorAll('.error').forEach((el) => (el.textContent = ''));
+        document.getElementById('formMessage').textContent = '';
+
+        
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const age = document.getElementById('age').value.trim();
+        const theme = document.getElementById('theme').value;
+
+        if (firstName === '') {
+          document.getElementById('firstNameError').textContent = 'Prénom requis.';
+          isValid = false;
+        }
+
+        if (lastName === '') {
+          document.getElementById('lastNameError').textContent = 'Nom requis.';
+          isValid = false;
+        }
+
+        if (age === '' || isNaN(age) || age <= 0) {
+          document.getElementById('ageError').textContent =
+            'Veuillez entrer un âge valide (un nombre positif).';
+          isValid = false;
+        }
+
+        if (theme === '') {
+          document.getElementById('themeError').textContent =
+            'Veuillez sélectionner un thème valide.';
+          isValid = false;
+        }
+
+      });
+    </script>
+  </body>
+</html>
